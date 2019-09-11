@@ -1,0 +1,36 @@
+.clients
+{
+  width: 100%;
+
+  .clients-list{
+    thead{
+      tr{
+        th{
+          text-align: left;
+        }
+      }
+
+    }
+    tbody{
+
+      tr{
+        td{
+          text-align: left;
+          &.options{
+            .edit-btn{
+              margin-right: 8px;
+            }
+            .delete-btn{
+
+            }
+          }
+        }
+
+        &:hover{
+          background-color: #652a8e;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

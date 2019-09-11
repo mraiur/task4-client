@@ -1,7 +1,7 @@
-<h1>Please fill in your data:</h1>>
+<h1>Please fill in your data:</h1>
 
-<form [formGroup]="messageForm" (ngSubmit)="createOne()">
-  
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
     <label>
       First name:
       <input type="text" formControlName="firstname">
@@ -23,9 +23,10 @@
       <input type="text" formControlName="phonenumber">
       <div *ngIf="submitted && messageForm.controls.phonenumber.errors" class="errors">
         <div *ngIf="messageForm.controls.phonenumber.errors.required">Phone number is required</div>
+        <div *ngIf="messageForm.controls.phonenumber.errors.pattern">Expected pattern: +4407XXXXXXXXX</div>
       </div>
     </label>
-  
+
   <input type="submit" value="Save" class="cta">
 
 </form>
@@ -42,4 +43,3 @@
   <strong>Phone number:</strong>
   <span> {{ messageForm.controls.phonenumber.value}} </span>
 </div>
-  

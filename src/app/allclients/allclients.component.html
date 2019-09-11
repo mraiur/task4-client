@@ -1,1 +1,26 @@
-<button (ngClick)="getList()">List</button>
+<div class="clients">
+  <button (click)="onReload()">Reload</button>
+  <h2>Clients</h2>
+  <table class="clients-list">
+    <thead>
+      <th>ID</th>
+      <th>Firstname</th>
+      <th>Surname</th>
+      <th>Phone number</th>
+      <td>Options</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients" >
+        <td (click)="onShowClient(client)">{{client.id}}</td>
+        <td (click)="onShowClient(client)">{{client.firstname}}</td>
+        <td (click)="onShowClient(client)">{{client.surname}}</td>
+        <td (click)="onShowClient(client)">{{client.phonenumber}}</td>
+        <td class="options">
+          <span [routerLink]="['/client',client.id, 'edit']" class="edit-btn">edit</span>
+          <span (click)="onDeleteClient(client)" class="delete-btn">delete</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

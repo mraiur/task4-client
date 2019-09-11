@@ -1,0 +1,39 @@
+<h1>Please fill in your data:</h1>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      First name:
+      <input type="text" formControlName="firstname">
+      <div *ngIf="submitted && editForm.controls.firstname.errors" class="errors">
+        <div *ngIf="editForm.controls.firstname.errors.required">First name is required</div>
+      </div>
+    </label>
+
+    <label>
+      Surname:
+      <input type="text" formControlName="surname">
+      <div *ngIf="submitted && editForm.controls.surname.errors" class="errors">
+        <div *ngIf="editForm.controls.surname.errors.required">Surname is required</div>
+      </div>
+    </label>
+
+    <label>
+      Phone number: <span *ngIf="record && record.phonenumber">{{ record.phonenumber }}</span>
+    </label>
+
+  <input type="submit" value="Save" class="cta">
+
+</form>
+
+<h3 *ngIf="success" class="success" [innerHTML]="success"></h3>
+<h3 *ngIf="error" class="error" [innerHTML]="error"></h3>
+
+<div *ngIf="submitted" class="results">
+  <strong>First name:</strong>
+  <span> {{ editForm.controls.firstname.value}} </span>
+
+  <strong>Surname:</strong>
+  <span> {{ editForm.controls.surname.value}} </span>
+
+</div>
