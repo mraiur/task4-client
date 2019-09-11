@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AddformComponent } from './addform/addform.component';
 import { AllclientsComponent } from './allclients/allclients.component';
 import {EditFormComponent} from './editform/editform.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), FormsModule, ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
